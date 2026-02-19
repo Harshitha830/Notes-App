@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Notes Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📝 Smart Notes Manager</h1>
+            <div class="header-controls">
+                <input type="text" id="searchInput" placeholder="Search notes...">
+                <button id="addNoteBtn" class="btn-primary">+ Add Note</button>
+                <button id="themeToggle" class="btn-theme">🌙</button>
+            </div>
+        </header>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="Personal">Personal</button>
+            <button class="filter-btn" data-filter="Academic">Academic</button>
+            <button class="filter-btn" data-filter="Work">Work</button>
+            <button class="filter-btn" data-filter="Ideas">Ideas</button>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <span class="stat-number" id="totalNotes">0</span>
+                <span class="stat-label">Total Notes</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="highPriority">0</span>
+                <span class="stat-label">High Priority</span>
+            </div>
+        </div>
+
+        <div id="notesContainer" class="notes-grid"></div>
+    </div>
+
+    <!-- Modal -->
+    <div id="noteModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">Add New Note</h2>
+            <form id="noteForm">
+                <input type="hidden" id="noteId">
+                <input type="text" id="noteTitle" placeholder="Note Title" required>
+                <textarea id="noteDescription" placeholder="Note Description (min 10 characters)" required></textarea>
+                <select id="noteCategory" required>
+                    <option value="">Select Category</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Academic">Academic</option>
+                    <option value="Work">Work</option>
+                    <option value="Ideas">Ideas</option>
+                </select>
+                <select id="notePriority" required>
+                    <option value="">Select Priority</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
+                <div class="modal-buttons">
+                    <button type="submit" class="btn-primary">Save Note</button>
+                    <button type="button" id="cancelBtn" class="btn-secondary">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
